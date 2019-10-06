@@ -1,0 +1,51 @@
+﻿@model IEnumerable<InmobiliariaFramework.Models.pagos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nroPago)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.importe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.alquiler.idAlquiler)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nroPago)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.importe)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.alquiler.idAlquiler)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idPagos }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idPagos }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idPagos })
+        </td>
+    </tr>
+}
+
+</table>
